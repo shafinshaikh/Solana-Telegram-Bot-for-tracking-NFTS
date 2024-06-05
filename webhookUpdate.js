@@ -1,5 +1,8 @@
+require('dotenv').config();
+
 const fs = require('fs');
 const HELIUS_API = process.env.HELIUS_API;
+const HELIUS_WEBHOOK_ID = process.env.HELIUS_WEBHOOK_ID
 
 
 const editWebhook = async () => {
@@ -8,7 +11,7 @@ const editWebhook = async () => {
       const addresses = JSON.parse(fs.readFileSync('addresses.json', 'utf8'));
   
       const response = await fetch(
-        `https://api.helius.xyz/v0/webhooks/?api-key=${HELIUS_API}`,
+        `https://api.helius.xyz/v0/webhooks/${HELIUS_WEBHOOK_ID}?api-key=${HELIUS_API}`,
         {
           method: 'PUT',
           headers: {
