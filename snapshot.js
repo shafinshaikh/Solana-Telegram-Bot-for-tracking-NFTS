@@ -1,6 +1,8 @@
+require('dotenv').config();
 
 const fs = require('fs');
-const url = `https://mainnet.helius-rpc.com/?api-key=1e5c6ee1-43bd-46c1-9914-1ef8ff9e9c8e`;
+const HELIUS_API = process.env.HELIUS_API;
+const url = `https://mainnet.helius-rpc.com/?api-key=${HELIUS_API}`;
 
 const getAssetsByCreator = async () => {
   let page = 1;
